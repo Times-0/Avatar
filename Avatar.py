@@ -57,6 +57,11 @@ def buildAvatar(images):
 
 	return AvatarIO
 
+@app.route('/<path:m>/crossdomain.xml', methods = ['GET'])
+@app.route('/crossdomain.xml', methods = ['GET'])
+def handleCrossdomain(m = None):
+	return '<cross-domain-policy><allow-access-from domain="*"/></cross-domain-policy>'
+
 @app.route("/<swid>/cp", methods = ['GET'])
 def getAvatar(swid):
 	size = 120
