@@ -13,7 +13,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@127.0.0.1/times-cp'
 database = SQLAlchemy(app)
 
 def downloadImage(image, size = 120):
-	path = 'https://icer.ink/mobcdn.clubpenguin.com/game/items/images/paper/image/{}/{}.png'.format(size, image)
+	path = 'http://icer.ink/mobcdn.clubpenguin.com/game/items/images/paper/image/{}/{}.png'.format(size, image)
 
 	print 'Downloading...', path
 
