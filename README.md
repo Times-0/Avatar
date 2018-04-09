@@ -1,7 +1,6 @@
 # Avatar
 Reversed Club Penguin Avatar API
 
-**Anyone except _Zaseth_ can use this**
 
 # Requirements
 * Python 2.7
