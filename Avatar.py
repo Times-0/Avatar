@@ -9,7 +9,7 @@ import requests, os
 app = Flask(__name__)
 AVAILABLE_SIZES = [60, 88, 95, 120, 300, 600]
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@127.0.0.1/times-cp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@127.0.0.1/timeline'
 database = SQLAlchemy(app)
 
 def downloadImage(image, size = 120):
@@ -73,8 +73,8 @@ def getAvatar(swid):
 			size = 120
 	except:
 		pass
-
-	details = database.engine.execute("SELECT Photo, Color, Head, Face, Neck, Body, Hand, Feet, Pin FROM penguins WHERE swid = %s", swid)
+    
+	details = database.engine.execute("SELECT Photo, Color, Head, Face, Neck, Body, Hand, Feet, Pin FROM avatars a, penguins p WHERE p.id = a.penguin_id and p.swid = %s", swid)
 	details = details.first()
 	if details is None:
 		return abort(404)
